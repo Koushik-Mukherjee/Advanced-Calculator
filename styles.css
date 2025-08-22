@@ -1,0 +1,553 @@
+/* Custom CSS variables for themes */
+:root {
+    --bg-color-light: #f3f4f6; /* Light gray background */
+    --text-color-light: #1f2937; /* Dark gray text */
+    --card-bg-light: #ffffff; /* White card background */
+    --border-color-light: #e5e7eb; /* Light border */
+    --primary-color-light: #3b82f6; /* Blue accent */
+    --primary-hover-light: #2563eb; /* Darker blue on hover */
+    --shadow-color-light: rgba(0, 0, 0, 0.1); /* Soft shadow */
+    --input-bg-light: #f9fafb; /* Light input background */
+
+    --bg-color-dark: #1f2937; /* Dark gray background */
+    --text-color-dark: #f3f4f6; /* Light gray text */
+    --card-bg-dark: #374151; /* Darker gray card background */
+    --border-color-dark: #4b5563; /* Dark border */
+    --primary-color-dark: #60a5fa; /* Lighter blue accent */
+    --primary-hover-dark: #3b82f6; /* Blue on hover */
+    --shadow-color-dark: rgba(0, 0, 0, 0.3); /* Darker shadow */
+    --input-bg-dark: #4b5563; /* Dark input background */
+
+    /* Default to light theme */
+    --bg-color: var(--bg-color-light);
+    --text-color: var(--text-color-light);
+    --card-bg: var(--card-bg-light);
+    --border-color: var(--border-color-light);
+    --primary-color: var(--primary-color-light);
+    --primary-hover: var(--primary-hover-light);
+    --shadow-color: var(--shadow-color-light);
+    --input-bg: var(--input-bg-light);
+}
+
+/* Dark mode styles */
+body.dark-mode {
+    --bg-color: var(--bg-color-dark);
+    --text-color: var(--text-color-dark);
+    --card-bg: var(--card-bg-dark);
+    --border-color: var(--border-color-dark);
+    --primary-color: var(--primary-color-dark);
+    --primary-hover: var(--primary-hover-dark);
+    --shadow-color: var(--shadow-color-dark);
+    --input-bg: var(--input-bg-dark);
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    display: flex;
+    min-height: 100vh;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+/* Main layout container */
+.container-wrapper {
+    display: flex;
+    flex-grow: 1;
+    width: 100%;
+}
+
+/* Sidebar navigation */
+.sidebar {
+    width: 280px;
+    background-color: var(--card-bg);
+    border-right: 1px solid var(--border-color);
+    padding: 1.5rem;
+    box-shadow: 0 4px 12px var(--shadow-color);
+    transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    flex-shrink: 0;
+    position: sticky;
+    top: 0;
+    height: 100vh; /* Full height */
+    overflow-y: auto; /* Scrollable if content overflows */
+}
+
+.sidebar-header {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: var(--primary-color);
+}
+
+.nav-link {
+    display: block;
+    padding: 0.75rem 1rem;
+    margin-bottom: 0.5rem;
+    border-radius: 0.5rem;
+    color: var(--text-color);
+    text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.1s ease;
+    font-weight: 500;
+}
+
+.nav-link:hover {
+    background-color: var(--primary-color);
+    color: white;
+    transform: translateX(5px);
+}
+
+.nav-link.active {
+    background-color: var(--primary-color);
+    color: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Main content area */
+.content-area {
+    flex-grow: 1;
+    padding: 2rem;
+    overflow-y: auto;
+    position: relative;
+}
+
+.header-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.page-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-color);
+}
+
+/* Theme toggle switch */
+.theme-toggle {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.theme-toggle input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--border-color);
+    transition: 0.4s;
+    border-radius: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5px; /* Adjust padding to make space for icons */
+}
+
+.slider:before { /* This is the draggable circle */
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+    z-index: 2; /* Ensure slider is above icons */
+}
+
+input:checked + .slider {
+    background-color: var(--primary-color);
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+/* Icon styling */
+.sun-icon, .moon-icon {
+    font-size: 1.1rem; /* Adjust size as needed */
+    position: absolute; /* Position absolutely within the slider */
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    z-index: 1; /* Ensure icons are below the slider circle but above slider background */
+    pointer-events: none; /* Icons should not interfere with slider click */
+}
+
+.sun-icon {
+    color: #f39c12; /* Sun color */
+    left: 8px; /* Position on the left */
+    opacity: 1; /* Visible in light mode */
+    transform: translateX(0);
+}
+
+.moon-icon {
+    color: #f1c40f; /* Moon color */
+    right: 8px; /* Position on the right */
+    opacity: 0; /* Hidden in light mode */
+    transform: translateX(0);
+}
+
+/* When checked (dark mode) */
+body.dark-mode .sun-icon { /* Target based on body class for theme */
+    opacity: 0; /* Hide sun */
+    transform: translateX(-10px); /* Slide out slightly */
+}
+
+body.dark-mode .moon-icon { /* Target based on body class for theme */
+    opacity: 1; /* Show moon */
+    transform: translateX(0); /* Slide in */
+}
+
+/* Calculator card styles */
+.calculator-section {
+    background-color: var(--card-bg);
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 12px var(--shadow-color);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, opacity 0.5s ease, transform 0.5s ease;
+    opacity: 0; /* Hidden by default for transitions */
+    transform: translateY(20px); /* Slide in effect */
+    /* Removed fixed top/left/width from base class to allow active sections to flow naturally */
+    position: absolute; /* Still absolute when hidden for overlapping effect */
+    width: calc(100% - 4rem); /* Maintain width for absolute positioning */
+    top: 10rem; /* Keep for absolute positioning of hidden elements */
+    left: 2rem; /* Keep for absolute positioning of hidden elements */
+    pointer-events: none; /* Disable clicks when inactive */
+    z-index: 0; /* Ensure inactive sections are behind */
+}
+
+.calculator-section.active {
+    opacity: 1;
+    transform: translateY(0);
+    position: relative; /* Active section takes up space in flow */
+    top: auto; /* Override the absolute top, let it flow naturally */
+    left: auto; /* Override the absolute left, let it flow naturally */
+    width: 100%; /* Ensure it takes full width in relative flow */
+    pointer-events: auto; /* Enable clicks when active */
+    z-index: 1; /* Bring active section to front */
+}
+
+.calculator-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.75rem;
+}
+
+.calculator-display {
+    grid-column: span 4;
+    background-color: var(--input-bg);
+    color: var(--text-color);
+    font-size: 2.5rem;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    text-align: right;
+    margin-bottom: 1rem;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    overflow-x: auto;
+}
+
+.calculator-button {
+    background-color: var(--border-color);
+    color: var(--text-color);
+    padding: 1.25rem;
+    border-radius: 0.5rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+    box-shadow: 0 2px 4px var(--shadow-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.calculator-button:hover {
+    background-color: var(--primary-color);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px var(--shadow-color);
+}
+
+.calculator-button:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 2px var(--shadow-color);
+}
+
+.calculator-button.operator {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.calculator-button.operator:hover {
+    background-color: var(--primary-hover);
+}
+
+.calculator-button.clear, .calculator-button.equals {
+    background-color: #ef4444; /* Red for clear */
+    color: white;
+}
+
+.calculator-button.equals {
+    background-color: #10b981; /* Green for equals */
+}
+
+.calculator-button.clear:hover {
+    background-color: #dc2626;
+}
+
+.calculator-button.equals:hover {
+    background-color: #059669;
+}
+
+/* General form elements */
+.input-group {
+    margin-bottom: 1.5rem;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.input-group input[type="number"],
+.input-group input[type="date"],
+.input-group select,
+.history-list {
+    width: 100%;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--border-color);
+    background-color: var(--input-bg);
+    color: var(--text-color); /* Default text color from theme */
+    font-size: 1rem;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.input-group input[type="number"]:focus,
+.input-group input[type="date"]:focus,
+.input-group select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+/* Specific style for Numeral System Converter input in dark mode */
+body.dark-mode #numeral-value {
+    color: #1f2937; /* Dark gray, effectively black on dark background */
+}
+
+.result-display {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background-color: var(--input-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 0.5rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    word-break: break-all;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+    box-shadow: 0 2px 4px var(--shadow-color);
+    border: none;
+}
+
+.btn-primary.danger {
+    background-color: #ef4444;
+}
+
+.btn-primary.danger:hover {
+    background-color: #dc2626;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px var(--shadow-color);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 2px var(--shadow-color);
+}
+
+.history-list {
+    list-style: none;
+    padding: 0;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.history-item {
+    padding: 0.5rem 1rem;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1rem;
+    color: var(--text-color);
+    transition: background-color 0.2s ease;
+}
+
+.history-item:hover {
+    background-color: var(--input-bg);
+}
+
+.history-item:last-child {
+    border-bottom: none;
+}
+
+.history-item .delete-btn {
+    background: none;
+    border: none;
+    color: #ef4444;
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 0.25rem;
+    transition: color 0.2s ease;
+}
+
+.history-item .delete-btn:hover {
+    color: #dc2626;
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container-wrapper {
+    flex-direction: column;
+}
+
+.sidebar {
+    width: 100%;
+    height: auto;
+    position: sticky;
+    top: 0;
+    border-right: none;
+    border-bottom: 1px solid var(--border-color);
+    padding: 0.5rem;
+    box-shadow: none;
+    z-index: 10;
+    }
+
+.sidebar-header {
+    display: none;
+    }
+
+.sidebar nav {
+display: flex;
+overflow-x: auto;
+overflow-y: hidden;
+white-space: nowrap;
+-webkit-overflow-scrolling: touch;
+padding-bottom: 0.5rem;
+-ms-overflow-style: none;
+scrollbar-width: none;
+}
+
+.sidebar nav::-webkit-scrollbar {
+display: none;
+}
+
+.nav-link {
+flex-shrink: 0;
+padding: 0.5rem 0.75rem;
+margin-right: 0.5rem;
+font-size: 0.9rem;
+}
+
+.content-area {
+padding: 1rem;
+overflow-y: auto;
+flex-grow: 1;
+}
+
+.header-bar {
+flex-direction: row;
+align-items: center;
+justify-content: space-between;
+margin-bottom: 1rem;
+padding-bottom: 0.5rem;
+}
+
+.page-title {
+margin-bottom: 0;
+font-size: 1.5rem;
+}
+
+.theme-toggle {
+align-self: center;
+}
+
+.calculator-section {
+padding: 1.5rem;
+width: 100%;
+left: 0;
+top: auto;
+}
+
+.calculator-grid {
+grid-template-columns: repeat(3, 1fr);
+}
+
+.calculator-button {
+font-size: 1.2rem;
+padding: 1rem;
+}
+
+.calculator-display {
+font-size: 2rem;
+grid-column: span 3;
+}
+}
+
+@media (max-width: 480px) {
+.calculator-grid {
+grid-template-columns: repeat(2, 1fr);
+
+.calculator-display {
+font-size: 1.8rem;
+grid-column: span 2;
+}
+
+.calculator-button {
+font-size: 1rem;
+padding: 0.75rem;
+}
+
+.nav-link {
+font-size: 0.8rem;
+}
+}
+}

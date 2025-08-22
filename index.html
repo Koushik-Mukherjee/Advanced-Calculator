@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Calculator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container-wrapper">
+        <aside class="sidebar">
+            <h1 class="sidebar-header">Advanced Calculator</h1>
+            <nav>
+                <a href="#" class="nav-link active" data-section="normal-calculator">Normal Calculator</a>
+                <a href="#" class="nav-link" data-section="scientific-calculator">Scientific Calculator</a>
+                <a href="#" class="nav-link" data-section="age-calculator">Age Calculator</a>
+                <a href="#" class="nav-link" data-section="area-calculator">Area Calculator</a>
+                <a href="#" class="nav-link" data-section="bmi-calculator">BMI Calculator</a>
+                <a href="#" class="nav-link" data-section="data-converter">Data Converter</a>
+                <a href="#" class="nav-link" data-section="date-calculator">Date Calculator</a>
+                <a href="#" class="nav-link" data-section="discount-calculator">Discount Calculator</a>
+                <a href="#" class="nav-link" data-section="length-converter">Length Converter</a>
+                <a href="#" class="nav-link" data-section="mass-converter">Mass Converter</a>
+                <a href="#" class="nav-link" data-section="numeral-system-converter">Numeral System Converter</a>
+                <a href="#" class="nav-link" data-section="speed-converter">Speed Converter</a>
+                <a href="#" class="nav-link" data-section="temperature-converter">Temperature Converter</a>
+                <a href="#" class="nav-link" data-section="time-converter">Time Converter</a>
+                <a href="#" class="nav-link" data-section="volume-converter">Volume Converter</a>
+                <a href="#" class="nav-link" data-section="gst-calculator">GST Calculator</a>
+                <a href="#" class="nav-link" data-section="currency-converter">Currency Converter</a>
+                <a href="#" class="nav-link" data-section="investment-calculator">Investment Calculator</a>
+                <a href="#" class="nav-link" data-section="loan-calculator">Loan Calculator</a>
+                <a href="#" class="nav-link" data-section="history-section">Calculation History</a>
+            </nav>
+        </aside>
+
+        <main class="content-area">
+            <header class="header-bar">
+                <h2 class="page-title" id="current-page-title">Normal Calculator</h2>
+                <label class="theme-toggle">
+                    <input type="checkbox" id="theme-toggle-checkbox">
+                    <span class="slider">
+                        <i class="fas fa-sun sun-icon"></i>
+                        <i class="fas fa-moon moon-icon"></i>
+                    </span>
+                </label>
+            </header>
+
+            <section id="normal-calculator" class="calculator-section active">
+                <h3 class="text-2xl font-semibold mb-4 text-center">Normal Calculator</h3>
+                <div class="calculator-display" id="normal-display">0</div>
+                <div class="calculator-grid">
+                    <button class="calculator-button clear" data-value="C">C</button>
+                    <button class="calculator-button operator" data-value="backspace">DEL</button>
+                    <button class="calculator-button operator" data-value="%">%</button>
+                    <button class="calculator-button operator" data-value="/">/</button>
+                    <button class="calculator-button" data-value="7">7</button>
+                    <button class="calculator-button" data-value="8">8</button>
+                    <button class="calculator-button" data-value="9">9</button>
+                    <button class="calculator-button operator" data-value="*">*</button>
+                    <button class="calculator-button" data-value="4">4</button>
+                    <button class="calculator-button" data-value="5">5</button>
+                    <button class="calculator-button" data-value="6">6</button>
+                    <button class="calculator-button operator" data-value="-">-</button>
+                    <button class="calculator-button" data-value="1">1</button>
+                    <button class="calculator-button" data-value="2">2</button>
+                    <button class="calculator-button" data-value="3">3</button>
+                    <button class="calculator-button operator" data-value="+">+</button>
+                    <button class="calculator-button" data-value="00">00</button>
+                    <button class="calculator-button" data-value="0">0</button>
+                    <button class="calculator-button" data-value=".">.</button>
+                    <button class="calculator-button equals" data-value="=">=</button>
+                </div>
+            </section>
+
+            <section id="scientific-calculator" class="calculator-section">
+                <h3 class="text-2xl font-semibold mb-4 text-center">Scientific Calculator</h3>
+                <div class="calculator-display" id="scientific-display">0</div>
+                <div class="calculator-grid">
+                    <button class="calculator-button clear" data-value="C">C</button>
+                    <button class="calculator-button operator" data-value="backspace">DEL</button>
+                    <button class="calculator-button operator" data-value="^">x<sup>y</sup></button>
+                    <button class="calculator-button operator" data-value="/">/</button>
+                    <button class="calculator-button operator" data-value="sin">sin</button>
+                    <button class="calculator-button operator" data-value="cos">cos</button>
+                    <button class="calculator-button operator" data-value="tan">tan</button>
+                    <button class="calculator-button operator" data-value="*">*</button>
+                    <button class="calculator-button operator" data-value="sqrt">√</button>
+                    <button class="calculator-button operator" data-value="log">log</button>
+                    <button class="calculator-button operator" data-value="ln">ln</button>
+                    <button class="calculator-button operator" data-value="-">-</button>
+                    <button class="calculator-button" data-value="7">7</button>
+                    <button class="calculator-button" data-value="8">8</button>
+                    <button class="calculator-button" data-value="9">9</button>
+                    <button class="calculator-button operator" data-value="+">+</button>
+                    <button class="calculator-button" data-value="4">4</button>
+                    <button class="calculator-button" data-value="5">5</button>
+                    <button class="calculator-button" data-value="6">6</button>
+                    <button class="calculator-button operator" data-value="(">(</button>
+                    <button class="calculator-button" data-value="1">1</button>
+                    <button class="calculator-button" data-value="2">2</button>
+                    <button class="calculator-button" data-value="3">3</button>
+                    <button class="calculator-button operator" data-value=")">)</button>
+                    <button class="calculator-button" data-value="0">0</button>
+                    <button class="calculator-button" data-value=".">.</button>
+                    <button class="calculator-button operator" data-value="pi">π</button>
+                    <button class="calculator-button equals" data-value="=">=</button>
+                </div>
+            </section>
+
+            <section id="age-calculator" class="calculator-section">
+                <h3 class="text-2xl font-semibold mb-4 text-center">Age Calculator</h3>
+                <div class="input-group">
+                    <label for="dob">Date of Birth:</label>
+                    <input type="date" id="dob" class="w-full">
+                </div>
+                <button class="btn-primary" id="calculate-age">Calculate Age</button>
+                <div class="result-display mt-4" id="age-result"></div>
+            </section>
+
+            <section id="area-calculator" class="calculator-section">
+                <h3 class="text-2xl font-semibold mb-4 text-center">Area Calculator</h3>
+                <div class="input-group">
+                    <label for="area-shape">Select Shape:</label>
+                    <select id="area-shape" class="w-full">
+                        <option value="square">Square</option>
+                        <option value="rectangle">Rectangle</option>
+                        <option value="circle">Circle</option>
+                        <option value="triangle">Triangle</option>
+                        <option value="trapezoid">Trapezoid</option>
+                        <option value="ellipse">Ellipse</option>
+                        <option value="rhombus">Rhombus</option>
+                        <option value="parallelogram">Parallelogram</option>
+                    </select>
+                </div>
+                <div id="area-inputs">
+                </div>
+                <button class="btn-primary" id="calculate-area">Calculate Area</button>
+                <div class="result-display mt-4" id="area-result"></div>
+            </section>
+
+            <section id="bmi-calculator" class="calculator-section">
+                <h3 class="text-2xl font-semibold mb-4 text-center">BMI Calculator</h3>
+                <div class="input-group">
+                    <label for="weight">Weight (kg):</label>
+                    <input type="number" id="weight" placeholder="Enter weight in kg" class="w-full">
+                </div>
+                <div class="input-group">
+                    <label for="height">Height (cm):</label>
+                    <input type="number" id="height" placeholder="Enter height in cm" class="w-full">
+                </div>
+                <button class="btn-primary" id="calculate-bmi">Calculate BMI</button>
+                <div class="result-display mt-4" id="bmi-result"></div>
+            </section>
+
+            <section id="data-converter" class="calculator-section">
+                <h3 class="text-2xl font-semibold mb-4 text-center">Data Converter</h3>
+                <div class="input-group">
+                    <label for="data-value">Value:</label>
+                    <input type="number" id="data-value" placeholder="Enter value" class="w-full">
+                </div>
+                <div class="input-group">
+                    <label for="data-from-unit">From Unit:</label>
+                    <select id="data-from-unit" class="w-full">
+                        <option value="bit">Bit</option>
+                        <option value="byte">Byte</option>
+                        <option value="kb">Kilobyte (KB)</option>
+                        <option value="mb">Megabyte (MB)</option>
+                        <option value="gb">Gigabyte (GB)</option>
+                        <option value="tb">Terabyte (TB)</option>
+                        <option value="pb">Petabyte (PB)</option>
+                        <option value="eb">Exabyte (EB)</option>
+                        <option value="zb">Zettabyte (ZB)</option>
+                        <option value="yb">Yottabyte (YB)</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="data-to-unit">To Unit:</label>
+                    <select id="data-to-unit" class="w-full">
+                        <option value="bit">Bit</option>
+                        <option value="byte">Byte</option>
+                        <option value="kb">Kilobyte (KB)</option>
+                        <option value="mb">Megabyte (MB)</option>
+                        <option value="gb">Gigabyte (GB)</option>
+                        <option value="tb">Terabyte (TB)</option>
+                        <option value="pb">Petabyte (PB)</option>
+                        <option value="eb">Exabyte (EB)</option>
+                        <option value="zb">Zettabyte (ZB)</option>
+                        <option value="yb">Yottabyte (YB)</option>
+                    </select>
+                </div>
+                <button class="btn-primary" id="convert-data">Convert Data</button>
+                <div class="result-display mt-4" id="data-result"></div>
+            </section>
+
+            <section id="date-calculator" class="calculator-section">
+                <h3 class="text-2xl font-semibold mb-4 text-center">Date Calculator</h3>
+                <div class="input-group">
+                    <label for="date1">Date 1:</label>
+                    <input type="date" id="date1" class="w-full">
+                </div>
+                <div class="input-group">
+                    <label for="date2">Date 2:</label>
+                    <input type="date" id="date2" class="w-full">
+                </div>
+                <button class="btn-primary" id="calculate-date-diff">Calculate Difference</button>
+                <div class="result-display mt-4" id="date-diff-result"></div>
+            </section>
+
+            <section id="discount-calculator" class="calculator-section">
+                <h3 class="text-2xl font-semibold mb-4 text-center">Discount Calculator</h3>
+                <div class="input-group">
+                    <label for="original-price">Original Price:</label>
+                    <input type="number" id="original-price" placeholder="Enter original price" class="w-full">
+                </div>
+                <div class="input-group">
+                    <label for="discount-percentage">Discount Percentage (%):</label>
+                    <input type="number" id="discount-percentage" placeholder="Enter discount %" class="w-full">
+                </div>
+                <button class="btn-primary" id="calculate-discount">Calculate Discount</button>
+                <div class="result-display mt-4" id="discount-result"></div>
+            </section>
+
+            <section id="length-converter" class="calculator-section">
+                <h3 class="text-2xl font-semibold mb-4 text-center">Length Converter</h3>
+                <div class="input-group">
+                    <label for="length-value">Value:</label>
+                    <input type="number" id="length-value" placeholder="Enter value" class="w-full">
+                </div>
+                <div class="input-group">
+                    <label for="length-from-unit">From Unit:</label>
+                    <select id="length-from-unit" class="w-full">
+                        <option value="nm">Nanometer (nm)</option>
+                        <option value="um">Micrometer (µm)</option>
+                        <option value="mm">Millimeter (mm)</option>
+                        <option value="cm">Centimeter (cm)</option>
+                        <option value="m">Meter (m)</option>
+                        <option value="km">Kilometer (km)</option>
+                        <option value="inch">Inch (in)</option>
+                        <option value="ft">Foot (ft)</option>
+                        <option value="yd">Yard (yd)</option>
+                        <option value="mile">Mile (mi)</option>
+                        <option value="naut_mile">Nautical Mile</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="length-to-unit">To Unit:</label>
+                    <select id="length-to-unit" class="w-full">
+                        <option value="nm">Nanometer (nm)</option>
+                        <option value="um">Micrometer (µm)</option>
+                        <option value="mm">Millimeter (mm)</option>
+                        <option value="cm">Centimeter (cm)</option>
+                        <option value="m">Meter (m)</option>
+                        <option value="km">Kilometer (km)</option>
+                        <option value="inch">Inch (in)</option>
+                        <option value="ft">Foot (ft)</option>
+                        <option value="yd">Yard (yd)</option>
+                        <option value="mile">Mile (mi)</option>
+                        <option value="naut_mile">Nautical Mile</option>
+                    </select>
+                </div>
+                <button class="btn-primary" id="convert-length">Convert Length</button>
+                <div class="result-display mt-4" id="length-result"></div>
+            </section>
+
+            <section id="mass-converter" class="calculator-section">
+                <h3 class="text-2xl font-semibold mb-4 text-center">Mass Converter</h3>
+                <div class="input-group">
+                    <label for="mass-value">Value:</label>
+                    <input type="number" id="mass-value" placeholder="Enter value" class="w-full">
+                </div>
+                <div class="input-group">
+                    <label for="mass-from-unit">From Unit:</label>
+                    <select id="mass-from-unit" class="w-full">
+                        <option value="mcg">Microgram (µg)</option>
+                        <option value="mg">Milligram (mg)</option>
+                        <option value="g">Gram (g)</option>
+                        <option value="kg">Kilogram (kg)</option>
+                        <option value="tonne">Metric Tonne</option>
+                        <option value="oz">Ounce (oz)</option>
+                        <option value="lb">Pound (lb)</option>
+                        <option value="stone">Stone</option>
+                        <option value="ton_us">Ton (US)</option>
+                        <option value="ton_uk">Ton (UK)</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="mass-to-unit">To Unit:</label>
+                    <select id="mass-to-unit" class="w-full">
+                        <option value="mcg">Microgram (µg)</option>
+                        <option value="mg">Milligram (mg)</option>
+                        <option value="g">Gram (g)</option>
+                        <option value="kg">Kilogram (kg)</option>
+                        <option value="tonne">Metric Tonne</option>
+                        <option value="oz">Ounce (oz)</option>
+                        <option value="lb">Pound (lb)</option>
+                        <option value="stone">Stone</option>
+                        <option value="ton_us">Ton (US)</option>
+                        <option value="ton_uk">Ton (UK)</option>
+                    </select>
+                </div>
+                <button class="btn-primary" id="convert-mass">Convert Mass</button>
+                <div class="result-display mt-4" id="mass-result"></div>
+            </section>
+
+            <section id="numeral-system-converter" class="calculator-section">
+                <h3 class="text-2xl font-semibold mb-4 text-center">Numeral System Converter</h3>
+                <div class="input-group">
+                    <label for="numeral-value">Value:</label>
+                    <input type="text" id="numeral-value" placeholder="Enter number" class="w-full">
+                </div>
+                <div class="input-group">
+                    <label for="numeral-from-base">From Base:</label>
+                    <select id="numeral-from-base" class="w-full">
+                        <option value="2">Binary (Base 2)</option>
+                        <option value="3">Ternary (Base 3)</option>
+                        <option value="4">Quaternary (Base 4)</option>
+                        <option value="5">Quinary (Base 5)</option>
+                        <option value="6">Senary (Base 6)</option>
+                        <option value="7">Septenary (Base 7)</option>
+                        <option value="8">Octal (Base 8)</option>
+                        <option value="9">Nonary (Base 9)</option>
+                        <option value="10" selected>Decimal (Base 10)</option>
+                        <option value="11">Undecimal (Base 11)</option>
+                        <option value="12">Duodecimal (Base 12)</option>
+                        <option value="16">Hexadecimal (Base 16)</option>
+                        <option value="20">Vigesimal (Base 20)</option>
+                        <option value="36">Base 36 (Alphanumeric)</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="numeral-to-base">To Base:</label>
+                    <select id="numeral-to-base" class="w-full">
+                        <option value="2">Binary (Base 2)</option>
+                        <option value="3">Ternary (Base 3)</option>
+                        <option value="4">Quaternary (Base 4)</option>
+                        <option value="5">Quinary (Base 5)</option>
+                        <option value="6">Senary (Base 6)</option>
+                        <option value="7">Septenary (Base 7)</option>
+                        <option value="8">Octal (Base 8)</option>
+                        <option value="9">Nonary (Base 9)</option>
+                        <option value="10" selected>Decimal (Base 10)</option>
+                        <option value="11">Undecimal (Base 11)</option>
+                        <option value="12">Duodecimal (Base 12)</option>
+                        <option value="16">Hexadecimal (Base 16)</option>
+                        <option value="20">Vigesimal (Base 20)</option>
+                        <option value="36">Base 36 (Alphanumeric)</option>
+                    </select>
+                </div>
+                <button class="btn-primary" id="convert-numeral">Convert Numeral</button>
+                <div class="result-display mt-4" id="numeral-result"></div>
+            </section>
+
+            <section id="speed-converter" class="calculator-section">
+                <h3 class="text-2xl font-semibold mb-4 text-center">Speed Converter</h3>
+                <div class="input-group">
+                    <label for="speed-value">Value:</label>
+                    <input type="number" id="speed-value" placeholder="Enter value" class="w-full">
+                </div>
+                <div class="input-group">
+                    <label for="speed-from-unit">From Unit:</label>
+                    <select id="speed-from-unit" class="w-full">
+                        <option value="mps">Meters/second (m/s)</option>
+                        <option value="kph">Kilometers/hour (km/h)</option>
+                        <option value="mph">Miles/hour (mph)</option>
+                        <option value="fps">Feet/second (ft/s)</option>
+                        <option value="knot">Knot (kt)</option>
+                        <option value="mach">Mach (at standard conditions)</option>
+                        <option value="c">Speed of Light (c)</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="speed-to-unit">To Unit:</label>
+                    <select id="speed-to-unit" class="w-full">
+                        <option value="mps">Meters/second (m/s)</option>
+                        <option value="kph">Kilometers/hour (km/h)</option>
+                        <option value="mph">Miles/hour (mph)</option>
+                        <option value="fps">Feet/second (ft/s)</option>
+                        <option value="knot">Knot (kt)</option>
+                        <option value="mach">Mach (at standard conditions)</option>
+                        <option value="c">Speed of Light (c)</option>
+                    </select>
+                </div>
+                <button class="btn-primary" id="convert-speed">Convert Speed</button>
+                <div class="result-display mt-4" id="speed-result"></div>
+            </section>
+
+            <section id="temperature-converter" class="calculator-section">
+                <h3 class="text-2xl font-semibold mb-4 text-center">Temperature Converter</h3>
+                <div class="input-group">
+                    <label for="temp-value">Value:</label>
+                    <input type="number" id="temp-value" placeholder="Enter temperature" class="w-full">
+                </div>
+                <div class="input-group">
+                    <label for="temp-from-unit">From Unit:</label>
+                    <select id="temp-from-unit" class="w-full">
+                        <option value="celsius">Celsius (°C)</option>
+                        <option value="fahrenheit">Fahrenheit (°F)</option>
+                        <option value="kelvin">Kelvin (K)</option>
+                        <option value="rankine">Rankine (°R)</option>
+                        <option value="reaumur">Réaumur (°Ré)</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="temp-to-unit">To Unit:</label>
+                    <select id="temp-to-unit" class="w-full">
+                        <option value="celsius">Celsius (°C)</option>
+                        <option value="fahrenheit">Fahrenheit (°F)</option>
+                        <option value="kelvin">Kelvin (K)</option>
+                        <option value="rankine">Rankine (°R)</option>
+                        <option value="reaumur">Réaumur (°Ré)</option>
+                    </select>
+                </div>
+                <button class="btn-primary" id="convert-temperature">Convert Temperature</button>
+                <div class="result-display mt-4" id="temperature-result"></div>
+            </section>
+
+            <section id="time-converter" class="calculator-section">
+                <h3 class="text-2xl font-semibold mb-4 text-center">Time Converter</h3>
+                <div class="input-group">
+                    <label for="time-value">Value:</label>
+                    <input type="number" id="time-value" placeholder="Enter value" class="w-full">
+                </div>
+                <div class="input-group">
+                    <label for="time-from-unit">From Unit:</label>
+                    <select id="time-from-unit" class="w-full">
+                        <option value="nanoseconds">Nanoseconds</option>
+                        <option value="microseconds">Microseconds</option>
+                        <option value="milliseconds">Milliseconds</option>
+                        <option value="seconds">Seconds</option>
+                        <option value="minutes">Minutes</option>
+                        <option value="hours">Hours</option>
+                        <option value="days">Days</option>
+                        <option value="weeks">Weeks</option>
+                        <option value="months">Months (approx)</option>
+                        <option value="years">Years (approx)</option>
+                        <option value="decades">Decades (approx)</option>
+                        <option value="centuries">Centuries (approx)</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="time-to-unit">To Unit:</label>
+                    <select id="time-to-unit" class="w-full">
+                        <option value="nanoseconds">Nanoseconds</option>
+                        <option value="microseconds">Microseconds</option>
+                        <option value="milliseconds">Milliseconds</option>
+                        <option value="seconds">Seconds</option>
+                        <option value="minutes">Minutes</option>
+                        <option value="hours">Hours</option>
+                        <option value="days">Days</option>
+                        <option value="weeks">Weeks</option>
+                        <option value="months">Months (approx)</option>
+                        <option value="years">Years (approx)</option>
+                        <option value="decades">Decades (approx)</option>
+                        <option value="centuries">Centuries (approx)</option>
+                    </select>
+                </div>
+                <button class="btn-primary" id="convert-time">Convert Time</button>
+                <div class="result-display mt-4" id="time-result"></div>
+            </section>
+
+            <section id="volume-converter" class="calculator-section">
+                <h3 class="text-2xl font-semibold mb-4 text-center">Volume Converter</h3>
+                <div class="input-group">
+                    <label for="volume-value">Value:</label>
+                    <input type="number" id="volume-value" placeholder="Enter value" class="w-full">
+                </div>
+                <div class="input-group">
+                    <label for="volume-from-unit">From Unit:</label>
+                    <select id="volume-from-unit" class="w-full">
+                        <option value="cm3">Cubic Centimeter (cm³)</option>
+                        <option value="ml">Milliliter (ml)</option>
+                        <option value="l">Liter (l)</option>
+                        <option value="m3">Cubic Meter (m³)</option>
+                        <option value="km3">Cubic Kilometer (km³)</option>
+                        <option value="in3">Cubic Inch (in³)</option>
+                        <option value="ft3">Cubic Foot (ft³)</option>
+                        <option value="yd3">Cubic Yard (yd³)</option>
+                        <option value="gal_us_liq">Gallon (US Liquid)</option>
+                        <option value="gal_uk">Gallon (UK)</option>
+                        <option value="qt_us_liq">Quart (US Liquid)</option>
+                        <option value="pt_us_liq">Pint (US Liquid)</option>
+                        <option value="cup_us">Cup (US)</option>
+                        <option value="fl_oz_us">Fluid Ounce (US)</option>
+                        <option value="barrel_us">Barrel (US Oil)</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="volume-to-unit">To Unit:</label>
+                    <select id="volume-to-unit" class="w-full">
+                        <option value="cm3">Cubic Centimeter (cm³)</option>
+                        <option value="ml">Milliliter (ml)</option>
+                        <option value="l">Liter (l)</option>
+                        <option value="m3">Cubic Meter (m³)</option>
+                        <option value="km3">Cubic Kilometer (km³)</option>
+                        <option value="in3">Cubic Inch (in³)</option>
+                        <option value="ft3">Cubic Foot (ft³)</option>
+                        <option value="yd3">Cubic Yard (yd³)</option>
+                        <option value="gal_us_liq">Gallon (US Liquid)</option>
+                        <option value="gal_uk">Gallon (UK)</option>
+                        <option value="qt_us_liq">Quart (US Liquid)</option>
+                        <option value="pt_us_liq">Pint (US Liquid)</option>
+                        <option value="cup_us">Cup (US)</option>
+                        <option value="fl_oz_us">Fluid Ounce (US)</option>
+                        <option value="barrel_us">Barrel (US Oil)</option>
+                    </select>
+                </div>
+                <button class="btn-primary" id="convert-volume">Convert Volume</button>
+                <div class="result-display mt-4" id="volume-result"></div>
+            </section>
+
+            <section id="gst-calculator" class="calculator-section">
+                <h3 class="text-2xl font-semibold mb-4 text-center">GST Calculator</h3>
+                <div class="input-group">
+                    <label for="gst-amount">Amount:</label>
+                    <input type="number" id="gst-amount" placeholder="Enter amount" class="w-full">
+                </div>
+                <div class="input-group">
+                    <label for="gst-rate">GST Rate (%):</label>
+                    <input type="number" id="gst-rate" value="18" min="0" max="100" class="w-full">
+                </div>
+                <div class="flex gap-4">
+                    <button class="btn-primary" id="add-gst">Add GST</button>
+                    <button class="btn-primary" id="remove-gst">Remove GST</button>
+                </div>
+                <div class="result-display mt-4" id="gst-result"></div>
+            </section>
+
+            <section id="currency-converter" class="calculator-section">
+                <h3 class="text-2xl font-semibold mb-4 text-center">Currency Converter</h3>
+                <p class="text-sm text-gray-500 mb-4">Note: Real-time currency conversion requires an external API. This is a placeholder.</p>
+                <div class="input-group">
+                    <label for="currency-value">Amount:</label>
+                    <input type="number" id="currency-value" placeholder="Enter amount" class="w-full">
+                </div>
+                <div class="input-group">
+                    <label for="currency-from">From Currency:</label>
+                    <select id="currency-from" class="w-full">
+                        <option value="USD">USD - United States Dollar</option>
+                        <option value="EUR">EUR - Euro</option>
+                        <option value="GBP">GBP - British Pound</option>
+                        <option value="JPY">JPY - Japanese Yen</option>
+                        <option value="CAD">CAD - Canadian Dollar</option>
+                        <option value="AUD">AUD - Australian Dollar</option>
+                        <option value="CHF">CHF - Swiss Franc</option>
+                        <option value="CNY">CNY - Chinese Yuan</option>
+                        <option value="SEK">SEK - Swedish Krona</option>
+                        <option value="NZD">NZD - New Zealand Dollar</option>
+                        <option value="MXN">MXN - Mexican Peso</option>
+                        <option value="SGD">SGD - Singapore Dollar</option>
+                        <option value="HKD">HKD - Hong Kong Dollar</option>
+                        <option value="NOK">NOK - Norwegian Krone</option>
+                        <option value="KRW">KRW - South Korean Won</option>
+                        <option value="TRY">TRY - Turkish Lira</option>
+                        <option value="RUB">RUB - Russian Ruble</option>
+                        <option value="BRL">BRL - Brazilian Real</option>
+                        <option value="ZAR">ZAR - South African Rand</option>
+                        <option value="INR">INR - Indian Rupee</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="currency-to">To Unit:</label>
+                    <select id="currency-to" class="w-full">
+                        <option value="USD">USD - United States Dollar</option>
+                        <option value="EUR">EUR - Euro</option>
+                        <option value="GBP">GBP - British Pound</option>
+                        <option value="JPY">JPY - Japanese Yen</option>
+                        <option value="CAD">CAD - Canadian Dollar</option>
+                        <option value="AUD">AUD - Australian Dollar</option>
+                        <option value="CHF">CHF - Swiss Franc</option>
+                        <option value="CNY">CNY - Chinese Yuan</option>
+                        <option value="SEK">SEK - Swedish Krona</option>
+                        <option value="NZD">NZD - New Zealand Dollar</option>
+                        <option value="MXN">MXN - Mexican Peso</option>
+                        <option value="SGD">SGD - Singapore Dollar</option>
+                        <option value="HKD">HKD - Hong Kong Dollar</option>
+                        <option value="NOK">NOK - Norwegian Krone</option>
+                        <option value="KRW">KRW - South Korean Won</option>
+                        <option value="TRY">TRY - Turkish Lira</option>
+                        <option value="RUB">RUB - Russian Ruble</option>
+                        <option value="BRL">BRL - Brazilian Real</option>
+                        <option value="ZAR">ZAR - South African Rand</option>
+                        <option value="INR">INR - Indian Rupee</option>
+                    </select>
+                </div>
+                <button class="btn-primary" id="convert-currency">Convert Currency</button>
+                <div class="result-display mt-4" id="currency-result"></div>
+            </section>
+
+            <section id="investment-calculator" class="calculator-section">
+                <h3 class="text-2xl font-semibold mb-4 text-center">Investment Calculator</h3>
+                <div class="input-group">
+                    <label for="principal-amount">Principal Amount:</label>
+                    <input type="number" id="principal-amount" placeholder="Enter principal" class="w-full">
+                </div>
+                <div class="input-group">
+                    <label for="annual-rate">Annual Interest Rate (%):</label>
+                    <input type="number" id="annual-rate" placeholder="Enter annual rate" class="w-full">
+                </div>
+                <div class="input-group">
+                    <label for="investment-period">Investment Period (Years):</label>
+                    <input type="number" id="investment-period" placeholder="Enter years" class="w-full">
+                </div>
+                <div class="input-group">
+                    <label for="compounding-frequency">Compounding Frequency:</label>
+                    <select id="compounding-frequency" class="w-full">
+                        <option value="1">Annually</option>
+                        <option value="2">Semi-annually</option>
+                        <option value="4">Quarterly</option>
+                        <option value="12">Monthly</option>
+                        <option value="365">Daily</option>
+                    </select>
+                </div>
+                <button class="btn-primary" id="calculate-investment">Calculate Investment</button>
+                <div class="result-display mt-4" id="investment-result"></div>
+            </section>
+
+            <section id="loan-calculator" class="calculator-section">
+                <h3 class="text-2xl font-semibold mb-4 text-center">Loan Calculator</h3>
+                <div class="input-group">
+                    <label for="loan-amount">Loan Amount:</label>
+                    <input type="number" id="loan-amount" placeholder="Enter loan amount" class="w-full">
+                </div>
+                <div class="input-group">
+                    <label for="loan-interest-rate">Annual Interest Rate (%):</label>
+                    <input type="number" id="loan-interest-rate" placeholder="Enter annual rate" class="w-full">
+                </div>
+                <div class="input-group">
+                    <label for="loan-term">Loan Term (Months):</label>
+                    <input type="number" id="loan-term" placeholder="Enter loan term in months" class="w-full">
+                </div>
+                <button class="btn-primary" id="calculate-loan">Calculate Loan</button>
+                <div class="result-display mt-4" id="loan-result"></div>
+            </section>
+
+            <section id="history-section" class="calculator-section">
+                <h3 class="text-2xl font-semibold mb-4 text-center">Calculation History</h3>
+                <div class="flex justify-end mb-4">
+                    <button class="btn-primary danger" id="clear-history">Clear History</button>
+                </div>
+                <ul id="history-list" class="history-list">
+                    <li class="history-item">No history yet.</li>
+                </ul>
+            </section>
+        </main>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html>
